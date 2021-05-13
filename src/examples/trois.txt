@@ -1,0 +1,133 @@
+const path = require('path');
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  });
+};
+
+exports.createPages = ({ actions, graphql }) => {
+	const { createPage } = actions;
+	const productTemplate = path.resolve('./src/templates/ProductTemplate/index.js');
+	const atelierTemplate = path.resolve('./src/templates/AtelierTemplate/index.js');
+	const lisProducTemplate = path.resolve('src/templates/ListProductTemplate/index.js');
+	// Individual blogs pages
+	const product = graphql(`
+  {
+    produits: allShopifyProduct(filter: {productType: {eq: "Boutique"}    }) {
+       edges {
+         node {
+           shopifyId
+           handle
+         }
+       }
+     }
+   }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create product pages
+		result.data.produits.edges.forEach(({ node }) => {
+			createPage({
+        path: `produits/${node.handle}`,
+				component: productTemplate,         context: {
+          shopifyId: node.shopifyId,
+        },
+
+			});
+		});
+	});
+
+	// Doc root pages
+	// This is a `sync` operation, but we are wrapping
+	// inside a Promise, because that's what gatsby Node API
+	// expects.
+	const listproduct = new Promise((resolve, reject) => {
+		
+		// First get all directories inside docs
+	const postsPerPage = 2;
+		const numPages = Math.ceil(posts.length / postsPerPage);
+		Array.from({ length: numPages }).forEach((_, i) => {
+			docTypes.forEach(docType => {
+				createPage({
+					path: i === 0 ? `/` : `/${i + 1}`,
+					component: lisProducTemplate,
+					context: {
+						limit: postsPerPage,
+						skip: i * postsPerPage,
+						numPages,
+						currentPage: i + 1,
+					  },
+				});
+
+			});
+			resolve();
+		}
+			
+	else {
+			reject(new Error(`No directories found for document roots.`));
+		}
+	});
+
+
+	const docRoots = new Promise((resolve, reject) => {
+		// First get all directories inside docs
+		const docTypes = dirs(path.resolve(__dirname, './docs'));
+		if (docTypes && docTypes.length) {
+			docTypes.forEach(docType => {
+				createPage({
+					path: `/${docType}/`,
+					component: docRootTemplate,
+					context: {
+						docType,
+					},
+				});
+			});
+			resolve();
+		} else {
+			reject(new Error(`No directories found for document roots.`));
+		}
+	});
+
+	return Promise.all([docs, docRoots]);
+};
+
+
+	// page Atelier
+	const atelier = graphql(`
+		{
+      ateliers: allShopifyProduct(filter: {productType: {eq: "Atelier"}    }) {
+        edges {
+          node {
+            shopifyId
+            handle
+          }
+        }
+      }
+    }
+    
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create atelier pages
+		result.data.ateliers.edges.forEach(({ node }) => {
+			createPage({
+        path: `ateliers/${node.handle}`,
+				component: atelierTemplate,
+        context: {
+          shopifyId: node.shopifyId,
+        },
+			});
+		});
+	});
+
+	// Return a Promise which would wait for both the queries to resolve
+	return Promise.all([product, atelier,listproduct]);
+};
+

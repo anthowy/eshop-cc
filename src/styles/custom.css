@@ -1,0 +1,338 @@
+.carousel-items {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+.carousel-item {
+  flex: 1 0 250px;
+  margin-left: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3d4852;
+  border-radius: 3px;
+}
+
+
+
+
+.position-fixed{
+  z-index: 999;
+  background-color: rgb(241, 241, 241);
+}
+
+.border-categorie{
+  border-bottom: 1px solid #EEE4E4;
+}
+
+.border-boutique{
+  border: 1px solid #008492;
+}
+
+.border-atelier{
+  border: 1px solid #ec6726;
+}
+
+
+.shadowbottom{
+  box-shadow: 0 12px 6px -6px #EEE4E4;
+  padding-bottom: 0;
+}
+
+.row{
+  display: inline-block;
+  width: 25%;
+margin:0px}
+
+.rowes{
+  margin-bottom: -5px;
+}
+
+.description{border: 1px solid #eee4e4;
+  border-radius: 0.25rem; }
+
+
+.produit-image-thumb{
+  width:70px;
+  height:70px;
+}
+
+
+img.produit-image{
+  display:block;
+  width:250px;
+  height: 250px;
+}
+
+button.search{
+  background-color:#A91F1F;
+  text-align: center;
+}
+
+
+.search{
+  background-color: #EEE4E4;
+}
+.search-input{
+  height:30px !important;
+}
+
+aside{
+  
+box-shadow: 0px 0 30px -2px #EEE4E4;
+min-height: 100vh;
+min-width:16%;
+max-width:16%}
+
+
+.title-categorie,.title-article{
+  color:#4A0D17;
+}
+
+.title-article-list{
+  max-width: 200px;
+  min-height:3rem;
+}
+.contact-shadow{box-shadow: 0 10px 10px -10px  #EEE4E4;}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+
+body, p{
+  font-family: 'Roboto', sans-serif !important;
+    color:#707070;
+}
+
+h1,h2, h3,h4{
+  font-family: 'Dancing Script', cursive;
+    color:#4A0D17;
+    border:0px;
+}
+
+h3.accueil{
+  font-family: 'Dancing Script', cursive;
+    color:#82b657;
+}
+h4{
+  font-family: 'Dancing Script' !important ;
+  font-size: 2rem;
+
+}
+
+h6{
+  font-style: italic;
+}
+ button,.DancingScript{
+  font-family: 'Dancing Script' !important }
+
+/*-----------------------------------------------------------------------------------*/
+
+
+.gris{
+  color:  #707070;
+
+}
+
+.jaune{background-color: #ec6726;}
+
+  
+  .site{
+    min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  header.accueil, footer{
+    background-color: #82B657;
+  }
+
+   footer{
+    padding: 1rem;
+}
+  .buttoncart{
+  background-color: #82B657;
+}
+  
+  header.headerboutique, footer.FooterBoutique,.buy-boutique
+  {
+    background-color: #008492;
+
+  }
+
+  header.headeratelier, footer.footeratelier .bgorange{
+    background-color:#ec6726 !important;
+
+  }
+
+
+
+
+  .concept-boutique{
+  background-color:#EEE4E4;
+  border-top: solid 7px #ec6726;
+  min-height: 450px;
+  }
+  
+  .concept-atelier{
+    background-color:#E0D7D7;
+    border-top: solid 7px #008492;
+    min-height: 450px;
+
+  
+  }
+  .contenu-boutique-atelier{
+    min-height: 220px;
+
+  }
+
+  .concept-atelier-background{
+    background-color:#E0D7D7;
+ 
+
+  }
+  .contenu p{
+margin-bottom: 1rem;
+  }
+
+  main{
+    flex: 1;
+    width:100%;
+  }
+  
+  button.boutique{
+    background-color:#ec6726;
+  }
+  button.atelier{
+    background-color:#008492;
+  }
+
+  .couleurboutique{
+    color:#008492;
+  }
+  
+  .couleuratelier{
+    color:#ec6726;
+  }
+  
+  button.valeur{
+    background-color:#82B657;
+    width: 120px;
+  }
+  
+ 
+ 
+  
+  
+  
+    img.valeur{
+      width:250px;
+      height:250px;
+    }
+    
+    
+  
+    
+    .markdown {
+      @apply text-gray-900 leading-normal break-words;
+    }
+    
+    .markdown > * + * {
+      @apply mt-4;
+    }
+    
+    .markdown strong {
+      @apply font-semibold;
+    }
+    
+    .markdown a {
+      @apply text-blue-600 font-semibold;
+    }
+    
+    .markdown strong a {
+      @apply font-bold;
+    }
+    
+    .markdown h1 {
+      @apply leading-tight border-b text-4xl font-semibold mb-4 mt-6 pb-2;
+    }
+    
+    .markdown h2 {
+      @apply leading-tight border-b text-2xl font-semibold mb-4 mt-6 pb-2;
+    }
+    
+    .markdown h3 {
+      @apply leading-snug text-lg font-semibold mb-4 mt-6;
+    }
+    
+    .markdown h4 {
+      @apply leading-none text-base font-semibold mb-4 mt-6;
+    }
+    
+    .markdown h5 {
+      @apply leading-tight text-sm font-semibold mb-4 mt-6;
+    }
+    
+    .markdown h6 {
+      @apply leading-tight text-sm font-semibold text-gray-600 mb-4 mt-6;
+    }
+    
+    .markdown blockquote {
+      @apply text-base border-l-4 border-gray-300 pl-4 pr-4 text-gray-600;
+    }
+    
+    .btn {
+      @apply font-bold py-2 px-4 rounded;
+    }
+    
+    .btn-green {
+      @apply bg-green-600 text-white;
+    }
+    
+    .btn-green:hover {
+      @apply bg-green-800;
+    }
+
+    @media screen and (max-width: 992px) {
+      concept-boutique{
+        background-color:#EEE4E4;
+        border-top: solid 7px #ec6726;
+        }
+        
+        .title-article{
+          max-width: 100%;
+        }
+        .concept-atelier{
+          background-color:#E0D7D7;
+          border-top: solid 7px #008492;
+          min-height: auto;
+      
+        
+        }
+
+        .border-categorie{
+          border-bottom: solid 1px #E0D7D7;
+          min-height: auto;
+      
+        
+        }
+
+.menu-vert a
+{text-decoration: underline;
+  text-decoration-color: 82b657}
+    }
+
+
+  

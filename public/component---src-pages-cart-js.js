@@ -1,0 +1,2 @@
+(self.webpackChunkgatsby_shopify_course=self.webpackChunkgatsby_shopify_course||[]).push([[873],{9926:function(e,t,r){"use strict";r.r(t),r.d(t,{default:function(){return a}});var n=r(7294),u=r(1818);function a(){return n.createElement(u.Ar,null,n.createElement(u.HJ,{description:"The MadHatter cart",title:"Cart"}),n.createElement(u.Gr,null))}}}]);
+//# sourceMappingURL=component---src-pages-cart-js.js.map
