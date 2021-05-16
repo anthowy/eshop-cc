@@ -49,6 +49,15 @@ const NavbarLinks = () => {
     </div>
 
     <div className="text-base font-regular mt-3 md:m-0">
+      <NavItem  to="/blog"
+                partiallyActive
+                activeClassName="font-bold underline "
+                className=" hover:opacity-80 block  mb-6 md:mb-0  md:p-1 md:px-4 md:inline-block">
+                  blog</NavItem>
+    </div>
+
+
+    <div className="text-base font-regular mt-3 md:m-0">
       <NavItem  to="/contact"
                 partiallyActive
                 activeClassName="font-bold underline "

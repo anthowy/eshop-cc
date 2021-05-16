@@ -14,7 +14,8 @@ exports.createPages = ({ actions, graphql }) => {
 	const { createPage } = actions;
 	const productTemplate = path.resolve('./src/templates/ProductTemplate/index.js');
 	const atelierTemplate = path.resolve('./src/templates/AtelierTemplate/index.js');
-
+	const BlogTemplate = path.resolve('./src/templates/BlogTemplate/index.js');
+	
 	// Individual blogs pages
 	const product = graphql(`
   {
@@ -73,8 +74,39 @@ exports.createPages = ({ actions, graphql }) => {
 			});
 		});
 	});
+// blog page 
+
+
+	const blog = graphql(`
+	{
+      blog:allDatoCmsBlog {
+		  edges{
+			  node{
+				id
+				slug
+			  }
+			
+		  }
+		
+	}
+}`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create bloge pages
+		result.data.blog.edges.forEach(({ node }) => {
+			createPage({
+        path: `blog/${node.slug}`,
+				component: BlogTemplate,
+        
+			});
+		});
+	});
+
+
 
 	// Return a Promise which would wait for both the queries to resolve
-	return Promise.all([product, atelier]);
+	return Promise.all([product, atelier, blog]);
 };
 

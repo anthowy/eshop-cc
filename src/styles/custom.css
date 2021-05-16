@@ -1,3 +1,7 @@
+.blogs p{
+  margin-bottom: 1rem;
+}
+
 .carousel-items {
   display: flex;
   flex-direction: row;
@@ -80,6 +84,10 @@ button.search{
   text-align: center;
 }
 
+.blog{
+  background-color:#A91F1F;
+
+}
 
 .search{
   background-color: #EEE4E4;
