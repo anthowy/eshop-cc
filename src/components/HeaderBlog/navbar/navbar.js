@@ -17,7 +17,7 @@ display: flex;
     left: 0;
     right: 0;
     left: 0;
-    background-color:#82b657;
+    background-color:#A91F1F;
   }
 `
 

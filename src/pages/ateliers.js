@@ -1,95 +1,159 @@
 import React, { useState } from 'react'
 import {  ProductsGrid, SEO } from 'components';
-import{LayoutBoutique} from '../components/LayoutBoutique'
+import{LayoutAtelier} from '../components/LayoutAtelier'
 import { Aside } from 'components/aside'
 import ProductContext from 'context/ProductContext';
 import queryString from 'query-string';
 import { useLocation } from '@reach/router';
 import { Filters } from '../components/Filters'
+import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from "styled-components"
 
 
-export default function AllProducts() {
-  const { products, collections } = React.useContext(ProductContext);
-  const collectionProductMap = {};
-  const { search } = useLocation();
-  const qs = queryString.parse(search);
-  const selectedCollectionIds = qs.c?.split(',').filter(c => !!c) || [];
-  const selectedCollectionIdsMap = {};
-  const searchTerm = qs.s;
-
-  selectedCollectionIds.forEach(collectionId => {
-    selectedCollectionIdsMap[collectionId] = true;
-  });
-
-  if (collections) {
-    collections.forEach(collection => {
-      collectionProductMap[collection.shopifyId] = {};
-
-      collection.products.forEach(product => {
-        collectionProductMap[collection.shopifyId][product.shopifyId] = true;
-      });
-    });
+const StyledImg = styled(Img)`
+@media screen and ( max-width: 1024px ) {
+  width: auto; 
+  margin:auto;
   }
+  display: block;
+  width: 250px;
+  height:250px;
+`
 
-  const filterByCategory = product => {
-    if (Object.keys(selectedCollectionIdsMap).length) {
-      for (let key in selectedCollectionIdsMap) {
-        if (collectionProductMap[key]?.[product.shopifyId]) {
-          return true;
-        }
-      }
-      return false;
-    }
 
-    return true;
-  };
 
-  const filterBySearchTerm = product => {
-    if (searchTerm) {
-      return product.title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0;
-    }
-
-    return true;
-  };
-
-  const filteredProducts = products
-    .filter(filterByCategory)
-    .filter(filterBySearchTerm);
-    const [isExpanded, toggleExpansion] = useState(false)
-  return (
-    <LayoutBoutique>
+  const AllAtelier = ({ data }) => (
+    <LayoutAtelier>
       <SEO
         description="Coccinelles et compagnie"
         title="tout les produits"
       />
-  <section className='flex flex-col md:flex-row content-center space-x-4 w-12/12'>
+  <section className=' m-auto flex flex-col content-center space-x-8 w-10/12 mt-10 md:ml-10'>
   
 
+  <h2 className="DancingScript mb-5 text-4xl"> Les prochains ateliers </h2>
+  <ul className=" w-10/12  flex flex-col justify-start md:items-top md:flex-row md:flex-wrap">
+      {data.allShopifyProduct.edges.map(({ node }) => (
+        
+        <li className=" mb-5 mr-5 hover:opacity-80" key={node.shopifyId}>
+          
+          <Link to={`/ateliers/${node.handle}`}>
+          <StyledImg fluid={node.images[0].localFile.childImageSharp.fluid}
 
-<Aside />
-<div className=" mt-10 md:mt-5 ">
-<button  className="  md:hidden hover:opacity-80 block p-2 ml-3 mb-5 text-xl w-1/3 buy-boutique whitespace-nowrap rounded-full text-white"  onClick={() => toggleExpansion(!isExpanded)}>
-          catégories
-        </button>
+                  />
+                              <div className="bg-white">
+            <div className=" title-article title-article-list DancingScript text-2xl md:text-3xl  h-auto  md:mb-2">
+            {node.title}
+</div>  
+<div className=" mt-3 md:mt-0 md:m-auto  text-l"> date: le {node.vendor}
 
-<div  className={`${
-              isExpanded ? `block` : `hidden`
-            } mb-5 md:block md:hidden md:flex md:items-center w-full md:w-auto ml-auto`}
-          >
-  <Filters />
 </div>
-
-  <h2 className="DancingScript mb-5 text-4xl"> Produits</h2>
-        {!!filteredProducts.length && (
-  <div className="flex-grow ">
-  <ProductsGrid products={filteredProducts} />
-          </div>
-        )}
-                  </div>
-
-      </section>
-    </LayoutBoutique>
+<div className=" mt-3 md:mt-0 md:m-auto  couleurboutique text-l">{node.priceRange.minVariantPrice.amount}€
+</div>
+</div>
+          </Link>
+        </li>
+      ))}
+    </ul>
+    </section>
+        </LayoutAtelier>
   );
-}
+
+  export default  AllAtelier
+
+export const query = graphql`
+  
+  {
+    allShopifyProduct(filter: {productType: {eq: "Atelier"}    }) {
+      edges {
+      node {
+        images {
+          originalSrc
+          localFile {
+            childImageSharp {
+              fluid {
+                base64
+                src
+                srcSet
+                srcSetWebp
+                srcWebp
+                tracedSVG
+                sizes
+                originalImg
+                originalName
+                presentationHeight
+                presentationWidth
+              }
+              fixed {
+                base64
+                tracedSVG
+                aspectRatio
+                srcWebp
+                srcSetWebp
+                originalName
+              }
+            }
+          }
+        }
+        availableForSale
+        createdAt
+        description
+        descriptionHtml
+        handle
+        id
+        vendor
+        title
+        tags
+        shopifyId
+        publishedAt
+        productType
+        priceRange {
+          maxVariantPrice {
+            amount
+            currencyCode
+          }
+          minVariantPrice {
+            currencyCode
+            amount
+          }
+        }
+        variants {
+          availableForSale
+          weightUnit
+          weight
+          title
+          sku
+          shopifyId
+          requiresShipping
+          priceNumber
+          price
+          id
+        }
+      }
+    }
+  }
+  
+  
+  allShopifyCollection(
+    sort: {fields: title, order: ASC}
+    filter: {products: {elemMatch: {productType: {glob: "Atelier"}}}}
+  ) {
+    edges {
+      node {
+        products {
+          ...ShopifyProductFields
+          ...ProductTileFields
+        }
+        title
+        description
+        shopifyId
+      }
+    }
+  }
+  }
+  
+    `
+
 
 

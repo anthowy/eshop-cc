@@ -47,6 +47,13 @@ const NavbarLinks = () => {
                 className=" hover:opacity-80 block  mb-6 md:mb-0  md:p-1 md:px-4 md:inline-block">
                   Boutique</NavItem>
     </div>
+    <div className="text-base font-regular mt-3 md:m-0">
+      <NavItem  to="/ateliers"
+                partiallyActive
+                activeClassName="font-bold underline "
+                className=" hover:opacity-80 block  mb-6 md:mb-0  md:p-1 md:px-4 md:inline-block">
+                  Ateliers</NavItem>
+    </div>
 
     <div className="text-base font-regular mt-3 md:m-0">
       <NavItem  to="/blog"

@@ -17,16 +17,17 @@ export default function Index({ data }) {
 </aside>
 
         
-    <div className=" flex flex-col justify-center items-center md:items-top md:flex-row md:flex-wrap">
-
+    <div className=" flex flex-col md:mt-10 justify-center  md:items-top md:flex-row md:flex-wrap">
+    <img className='w-4/6 mx-auto md:hidden  mb-5 mt-3 ' alt="blog" src="https://res.cloudinary.com/anthow/image/upload/v1619966610/Coccinelles%20et%20compagnies/logo-blog_pc39gs.svg
+"/>
       {posts
         .filter(post => post.node.titreArticle.length > 0)
         .map(({ node: post }) => {
           return (
 
-                  <div className=" w-1/3 mb-5 mr-20 hover:opacity-80" key={post.id}>
+                  <div className="  mt-10 md:mt-0 m-auto w-10/12 md:w-1/3 mb-5 " key={post.id}>
 
-<div className=" title-article DancingScript text-2xl md:text-3xl  h-20  md:mb-2">
+<div className=" title-article DancingScript text-2xl md:text-3xl hover:opacity-80  h-20  md:mb-2">
           <Link to={`/blog/${post.slug}`}>    {post.titreArticle} </Link>
               </div>
               <div className=" mb-10 md:mt-0 md:m-auto  couleurboutique text-l">{post.meta.createdAt}</div>
@@ -34,7 +35,10 @@ export default function Index({ data }) {
               <div className="contenu" dangerouslySetInnerHTML={{ __html: post.chapeaux }} />
 
               </p>
-              <p>lire plus...</p>
+              <p className="hover:opacity-80">
+              <Link to={`/blog/${post.slug}`}> lire plus... </Link>
+
+                </p>
             </div>
           
           )

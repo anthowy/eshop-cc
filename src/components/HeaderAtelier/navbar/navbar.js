@@ -14,7 +14,7 @@ display: flex;
 
   @media (max-width: 768px) {
     position: fixed;
-    height: 12vh;
+    height: 8vh;
     top: 0;
     left: 0;
     right: 0;
@@ -41,50 +41,48 @@ const Navbox = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    position: fixed;
     flex-direction: column;
+    position: fixed;
+    width: 99%;
     justify-content: flex-start;
-    padding-top: 1vh;
     background-color: #fff;
     transition: all 0.3s ease-in;
-    width: 99%;
-    top: 12vh;
-    left: 0px;
-    overflow-x:hidden;
-    height:200vh;
+    top: 8vh;
     left: ${props => (props.open ? "-100%" : "0")};
+    height:200vh;
+  }
 `
 
 const Hamburger = styled.div`
-  background-color: white;
+background-color: white;
+width: 30px;
+height: 3px;
+transition: all .3s linear;
+align-self: center;
+position: relative;
+transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
+
+::before,
+::after {
   width: 30px;
   height: 3px;
-  transition: all .3s linear;
-  align-self: center;
-  position: relative;
-  transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
+  background-color: white;
+  content: "";
+  position: absolute;
+  transition: all 0.3s linear;
+}
 
-  ::before,
-  ::after {
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    content: "";
-    position: absolute;
-    transition: all 0.3s linear;
-  }
+::before {
+  transform: ${props =>
+  props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
+  top: -10px;
+}
 
-  ::before {
-    transform: ${props =>
-    props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
-    top: -10px;
-  }
-
-  ::after {
-    opacity: ${props => (props.open ? "0" : "1")};
-    transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
-    top: 10px;
-  }
+::after {
+  opacity: ${props => (props.open ? "0" : "1")};
+  transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
+  top: 10px;
+}
 `
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -92,10 +90,10 @@ const Navbar = () => {
   return (
     <Navigation classname="text-white">
       <title> Coccinelles et compagnies</title>
-      <div className="flex flex-wrap container justify-between mx-1">
+      <div className="flex flex-wrap container justify-between mx-auto p-2">
 
         <Link to="/" className="flex items-center no-underline">
-          <span className=" text-xl md:text-4xl pl-5 md:mb-1 DancingScript italic font-bold">
+        <span className=" text-xl md:text-4xl pl-5 md:mb-1 DancingScript italic font-bold">
             Coccinelles et compagnie
             </span>
         </Link>

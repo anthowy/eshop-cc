@@ -8,7 +8,9 @@ import queryString from 'query-string';
 import { useLocation } from '@reach/router';
 import { Filters } from '../components/Filters'
 
-export default function AllProducts() {
+  
+
+export default function AllAtelier(data) {
   const { products, collections } = React.useContext(ProductContext);
   const collectionProductMap = {};
   const { search } = useLocation();

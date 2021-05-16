@@ -62,7 +62,6 @@ export default function AtelierTemplate(props,location) {
       />
       <div className="flex mt-20 flex-col md:flex-row content-center m-auto w-2/3 md:mt-10" >
       <div>
-      <Breadcrumb  location={location} crumbLabel={props.data.shopifyProduct.title} />
 
           <ImageGallery
             selectedVariantImageId={selectedVariant?.image.id}

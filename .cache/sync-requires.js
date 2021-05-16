@@ -9,9 +9,12 @@ exports.components = {
   "component---src-pages-ateliers-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/ateliers.js")),
   "component---src-pages-blog-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/blog.js")),
   "component---src-pages-cart-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/cart.js")),
+  "component---src-pages-condition-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/condition.js")),
   "component---src-pages-contact-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/contact.js")),
   "component---src-pages-index-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/index.js")),
+  "component---src-pages-politique-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/politique.js")),
   "component---src-pages-produits-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/produits.js")),
+  "component---src-pages-terme-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/terme.js")),
   "component---src-templates-atelier-template-index-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/templates/AtelierTemplate/index.js")),
   "component---src-templates-blog-template-index-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/templates/BlogTemplate/index.js")),
   "component---src-templates-product-template-index-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/templates/ProductTemplate/index.js"))
