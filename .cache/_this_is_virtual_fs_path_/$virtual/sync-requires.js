@@ -4,7 +4,6 @@ const preferDefault = m => (m && m.default) || m
 
 
 exports.components = {
-  "component---cache-dev-404-page-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/.cache/dev-404-page.js")),
   "component---src-pages-404-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/404.js")),
   "component---src-pages-ateliers-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/ateliers.js")),
   "component---src-pages-blog-js": preferDefault(require("/home/anthony/kDrive/avant/Visuelle/Coccinelles et compagnies/site/eshop/src/pages/blog.js")),
