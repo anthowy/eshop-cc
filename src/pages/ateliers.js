@@ -1,11 +1,6 @@
-import React, { useState } from 'react'
-import {  ProductsGrid, SEO } from 'components';
+import React from 'react'
+import { SEO } from 'components';
 import{LayoutAtelier} from '../components/LayoutAtelier'
-import { Aside } from 'components/aside'
-import ProductContext from 'context/ProductContext';
-import queryString from 'query-string';
-import { useLocation } from '@reach/router';
-import { Filters } from '../components/Filters'
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from "styled-components"

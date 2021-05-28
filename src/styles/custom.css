@@ -89,6 +89,10 @@ button.search{
 
 }
 
+.green-light{
+  background-color:#9fc75c;
+}
+
 .search{
   background-color: #EEE4E4;
 }
@@ -167,9 +171,7 @@ h6{
     background-color: #82B657;
   }
 
-   footer{
-    padding: 1rem;
-}
+
   .buttoncart{
   background-color: #82B657;
 }
@@ -191,13 +193,13 @@ h6{
   .concept-boutique{
   background-color:#EEE4E4;
   border-top: solid 7px #ec6726;
-  min-height: 450px;
-  }
+  min-height: 550px;
+}
   
   .concept-atelier{
     background-color:#E0D7D7;
     border-top: solid 7px #008492;
-    min-height: 450px;
+    min-height: 550px;
 
   
   }

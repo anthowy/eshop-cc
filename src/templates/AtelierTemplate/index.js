@@ -12,8 +12,6 @@ import {  Price } from './styles';
 import CartContext from 'context/CartContext';
 import { navigate, useLocation } from '@reach/router';
 import queryString from 'query-string';
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
-
 export const query = graphql`
   query AtelierQuery($shopifyId: String) {
     shopifyProduct(shopifyId: { eq: $shopifyId }) {
@@ -56,6 +54,7 @@ export default function AtelierTemplate(props,location) {
 
   return (
     <LayoutAtelier>
+
       <SEO
         description={props.data.shopifyProduct.description}
         title={props.data.shopifyProduct.title}

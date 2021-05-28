@@ -83,6 +83,7 @@ const ContactPage = ({ data }) => {
           <p>{data.datoCmsPageContact.adresse} </p>
           <p>{data.datoCmsPageContact.codePostal}</p>
           <p>{data.datoCmsPageContact.ville}</p>
+          <p>ouvert les mercredis, vendredis et samedis de 10 à 18h </p>
           <p> {data.datoCmsPageContact.numRoDeTLPhone}</p>
           <p>{data.datoCmsPageContact.mail}</p>
           <p>Numéro d'entreprise: {data.datoCmsPageContact.numRoDEntreprise}</p>

@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import {Layout} from '../components/LayoutBlog';
-import { Helmet } from "react-helmet"
 // import '../css/index.css'; // add some style if you want!
 
 export default function Index({ data }) {

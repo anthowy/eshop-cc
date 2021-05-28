@@ -7,7 +7,6 @@ import ProductContext from 'context/ProductContext';
 import queryString from 'query-string';
 import { useLocation } from '@reach/router';
 import { Filters } from '../components/Filters'
-
   
 
 export default function AllAtelier(data) {

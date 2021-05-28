@@ -12,7 +12,7 @@ const query = graphql`
   }
   {
     allShopifyProduct
-    (sort: {fields: publishedAt, order: DESC} filter: {productType: {eq: "Boutique"},availableForSale: {in: true}}) {
+    (sort: {fields: publishedAt, order: DESC} filter: {productType: {eq:"Boutique"},availableForSale: {in: true}}) {
       edges {
       node {
         images {

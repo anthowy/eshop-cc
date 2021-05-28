@@ -158,13 +158,31 @@ window.___loader = _loader.publicLoader;
       };
     }).pop();
 
-    const App = () => /*#__PURE__*/_react.default.createElement(GatsbyRoot, null, SiteRoot);
+    const App = function App() {
+      const onClientEntryRanRef = _react.default.useRef(false);
 
-    const renderer = (0, _apiRunnerBrowser.apiRunner)(`replaceHydrateFunction`, undefined, _reactDom.default.hydrate)[0];
+      _react.default.useEffect(() => {
+        if (!onClientEntryRanRef.current) {
+          onClientEntryRanRef.current = true;
+          performance.mark(`onInitialClientRender`);
+          (0, _apiRunnerBrowser.apiRunner)(`onInitialClientRender`);
+        }
+      }, []);
+
+      return /*#__PURE__*/_react.default.createElement(GatsbyRoot, null, SiteRoot);
+    };
+
+    const renderer = (0, _apiRunnerBrowser.apiRunner)(`replaceHydrateFunction`, undefined, process.env.GATSBY_EXPERIMENTAL_CONCURRENT_FEATURES ? _reactDom.default.unstable_createRoot : _reactDom.default.hydrate)[0];
     (0, _domready.default)(() => {
-      renderer( /*#__PURE__*/_react.default.createElement(App, null), typeof window !== `undefined` ? document.getElementById(`___gatsby`) : void 0, () => {
-        (0, _apiRunnerBrowser.apiRunner)(`onInitialClientRender`);
-      });
+      const container = typeof window !== `undefined` ? document.getElementById(`___gatsby`) : null;
+
+      if (renderer === _reactDom.default.unstable_createRoot) {
+        renderer(container, {
+          hydrate: true
+        }).render( /*#__PURE__*/_react.default.createElement(App, null));
+      } else {
+        renderer( /*#__PURE__*/_react.default.createElement(App, null), container);
+      }
     });
   });
 });

@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet"
 import { graphql,StaticQuery } from "gatsby"
 import {Layout} from "../../components/LayoutBlog"
 import Image from 'gatsby-image';
-
 // import '../css/blog-post.css';
 
 export const query = graphql`
