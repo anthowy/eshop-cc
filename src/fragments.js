@@ -9,7 +9,7 @@ export const productFields = graphql`
       id
       localFile {
         childImageSharp {
-          fluid(quality: 90) {
+          fluid(quality: 70) {
             base64
             tracedSVG
             srcWebp

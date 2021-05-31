@@ -88,11 +88,11 @@ const Navbar = () => {
 
   return (
     <Navigation classname="text-white">
-      <title> Coccinelles et compagnies</title>
+      <title> Coccinelles et compagnie</title>
       <div className="flex flex-wrap container justify-between mx-auto p-2">
 
         <Link to="/" className="flex items-center no-underline">
-          <span className=" text-xl md:text-4xl pl-5 md:mb-1 DancingScript italic font-bold">
+        <span className=" text-xl md:text-4xl pl-5 mb-1 DancingScript italic">
             Coccinelles et compagnie
             </span>
         </Link>

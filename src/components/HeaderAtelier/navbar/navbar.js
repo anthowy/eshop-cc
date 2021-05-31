@@ -93,7 +93,7 @@ const Navbar = () => {
       <div className="flex flex-wrap container justify-between mx-auto p-2">
 
         <Link to="/" className="flex items-center no-underline">
-        <span className=" text-xl md:text-4xl pl-5 md:mb-1 DancingScript italic font-bold">
+        <span className=" text-xl md:text-4xl pl-5 md:mb-1 DancingScript italic">
             Coccinelles et compagnie
             </span>
         </Link>

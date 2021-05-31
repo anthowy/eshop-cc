@@ -28,7 +28,7 @@ export function Search() {
         onChange={e => setSearchTerm(e.currentTarget.value)}
         className="search-input w-10/12 m-auto"
       />
-      <button className="search text-white p-2 mt-2 m-auto font-bold rounded-full w-1/2">
+      <button className="search text-white p-2 mt-2 m-auto font-semibold rounded-full w-1/2">
         Rechercher
       </button>
     </form>

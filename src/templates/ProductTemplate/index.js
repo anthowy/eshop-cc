@@ -56,6 +56,8 @@ export default function ProductTemplate(props) {
       title={props.data.shopifyProduct.title}
     />
     <div className="flex flex-col md:flex-row content-center m-auto w-2/3 mt-10" >
+    <button className="border-2 md:hidden px-2 mb-10 text-xl p-1 rounded-full "onClick={() => navigate(-1)}>Revenir aux produits</button>
+
     <div>
         <ImageGallery
           selectedVariantImageId={selectedVariant?.image.id}
@@ -64,7 +66,7 @@ export default function ProductTemplate(props) {
           
         />
       </div>        <div className="mt-4 md:mt-0 md:w-2/3 md:mx-8"> 
-      <button className="border-2 px-2 mb-10 text-xl p-1 rounded-full "onClick={() => navigate(-1)}>Revenir aux produits</button>
+      <button className="border-2 hidden md:block px-2 mb-10 text-xl p-1 rounded-full "onClick={() => navigate(-1)}>Revenir aux produits</button>
         <h1 className="title-article mb-5 DancingScript text-4xl md:text-5xl font-bold" >{props.data.shopifyProduct.title}</h1>
         {product?.availableForSale && !!selectedVariant && (
           <>

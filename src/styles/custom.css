@@ -33,7 +33,7 @@
 
 .position-fixed{
   z-index: 999;
-  background-color: rgb(241, 241, 241);
+  background-color:white;
 }
 
 .border-categorie{
@@ -79,9 +79,10 @@ img.produit-image{
   height: 250px;
 }
 
-button.search{
+.button.search{
   background-color:#A91F1F;
   text-align: center;
+  color:white;
 }
 
 .blog{
