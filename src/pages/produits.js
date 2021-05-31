@@ -69,7 +69,7 @@ export default function AllAtelier(data) {
 
 <Aside />
 <div className=" mt-5 md:mt-5 ">
-<div className="fixed position-fixed ">
+<div className="mt-5">
 <div className="flex p-2 w-12/12  items-baseline m-auto space-x-2">
 <button  className="  md:hidden hover:opacity-80 block p-2 ml-3 mb-5 text-xl w-1/3 buy-boutique whitespace-nowrap rounded-full text-white"  onClick={() => toggleExpansion(!isExpanded)}>
           catégories
@@ -85,7 +85,7 @@ export default function AllAtelier(data) {
   <Filters />
 </div>
 </div>
-  <h2 className="DancingScript mt-20 md:mt-5 mb-5 text-4xl"> Produits</h2>
+  <h2 className="DancingScript mt-5 md:mt-5 mb-5 text-4xl"> Produits</h2>
         {!!filteredProducts.length && (
   <div className="flex-grow m ">
   <ProductsGrid products={filteredProducts} />
