@@ -42,7 +42,7 @@ import {
                 </a>
               </button>
               </div>
-              <div className="rowes hidden concept-atelier-background ">
+              <div className="rowes  concept-atelier-background ">
                 <div className="row shadowbottom">
                 <img
                 src={data.datoCmsPageDAccueil.imagev1.url}  alt="valeur-1" />
@@ -83,7 +83,7 @@ import {
                 </a>
               </button>
               </div>
-              <div className=" hidden rowes">
+              <div className="  rowes">
                 <div className="row shadowbottom">
                 <img
                 src={data.datoCmsPageDAccueil.imagev1.url}  alt="valeur-1" />

@@ -9,7 +9,6 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 };
 
 
-
 exports.createPages = ({ actions, graphql }) => {
 	const { createPage } = actions;
 	const productTemplate = path.resolve('./src/templates/ProductTemplate/index.js');

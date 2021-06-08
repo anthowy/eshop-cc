@@ -23,9 +23,9 @@ export default function Index({ data }) {
         .map(({ node: post }) => {
           return (
 
-                  <div className="  mt-10 md:mt-0 m-auto w-10/12 md:w-1/3 mb-5 " key={post.id}>
+                  <div className="  mt-10 md:mt-0 m-auto w-10/12 md:w-1/2 mb-5 p-5 " key={post.id}>
 
-<div className=" title-article DancingScript text-2xl md:text-3xl hover:opacity-80  h-20  md:mb-2">
+<div className=" title-article DancingScript text-2xl md:text-3xl hover:opacity-80  h-auto  md:mb-2">
           <Link to={`/blog/${post.slug}`}>    {post.titreArticle} </Link>
               </div>
               <div className=" mb-10 md:mt-0 md:m-auto  couleurboutique text-l">{post.meta.createdAt}</div>
